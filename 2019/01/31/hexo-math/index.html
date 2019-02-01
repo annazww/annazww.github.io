@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="if warning about pandoc, npm hexo-render-pandoc again">
+<meta name="description" content="Plugin Installation1234npm uninstall hexo-renderer-marked --savenpm install hexo-renderer-mathjax --savenpm install hexo-renderer-pandoc --savenpm install hexo-renderer-kramed --save Configuration Mod">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo-math">
 <meta property="og:url" content="https://annazww.github.io/2019/01/31/hexo-math/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="if warning about pandoc, npm hexo-render-pandoc again">
+<meta property="og:description" content="Plugin Installation1234npm uninstall hexo-renderer-marked --savenpm install hexo-renderer-mathjax --savenpm install hexo-renderer-pandoc --savenpm install hexo-renderer-kramed --save Configuration Mod">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-01T03:08:20.141Z">
+<meta property="og:updated_time" content="2019-02-01T23:03:54.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo-math">
-<meta name="twitter:description" content="if warning about pandoc, npm hexo-render-pandoc again">
+<meta name="twitter:description" content="Plugin Installation1234npm uninstall hexo-renderer-marked --savenpm install hexo-renderer-mathjax --savenpm install hexo-renderer-pandoc --savenpm install hexo-renderer-kramed --save Configuration Mod">
 
 
 
@@ -352,7 +352,32 @@
       
 
       
-        <p>if warning about pandoc, npm hexo-render-pandoc again</p>
+        <h1 id="Plugin-Installation"><a href="#Plugin-Installation" class="headerlink" title="Plugin Installation"></a>Plugin Installation</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-mathjax --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<h1 id="Configuration-Modification"><a href="#Configuration-Modification" class="headerlink" title="Configuration Modification"></a>Configuration Modification</h1><p>In $Hexo$ site configuration file <strong>_config.yml</strong>, add the following sentences:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># MathJax Support</span><br><span class="line">math:</span><br><span class="line">  engine: &apos;mathjax&apos; # or &apos;katex&apos;</span><br><span class="line">  mathjax:</span><br><span class="line">    src: custom_mathjax_source</span><br><span class="line">    config:</span><br><span class="line">      # MathJax config</span><br><span class="line">  katex:</span><br><span class="line">    css: custom_css_source</span><br><span class="line">    js: custom_js_source # not used</span><br><span class="line">    config:</span><br><span class="line">      # KaTeX config</span><br></pre></td></tr></table></figure>
+<p>In theme configuraion file <strong>_next-theme-config.yml</strong> (if you use Next theme), modifying the following sentences (instead of adding):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mathjax:</span><br><span class="line">  enable: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h1 id="Escape-Strategy-Modification"><a href="#Escape-Strategy-Modification" class="headerlink" title="Escape Strategy Modification"></a>Escape Strategy Modification</h1><p>In <strong>node_modules\kramed\lib\rules\inline.js</strong>, change the value of variable $secape​$ in line $11​$ as follows:</p>
+<p><strong>before changing</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure>
+<p><strong>after changing</strong> (changing the escape for <strong>\,{,}</strong>)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()# +\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure>
+<p>Again in <strong>node_modules\kramed\lib\rules\inline.js</strong>, change the value of variable $em$ in line $20$ as follows:</p>
+<p><strong>before changing</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+<p><strong>after changing</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+<p>In <strong>/node_modules/hexo-renderer-kramed/lib/renderer.js</strong>, make the following change:</p>
+<p><strong>before changing</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Change inline math rule</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Fit kramed's rule: $$ + \1 + $$</span></span><br><span class="line">    <span class="keyword">return</span> text.replace(<span class="regexp">/`\$(.*?)\$`/g</span>, <span class="string">'$$$$$1$$$$'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>after changing</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Change inline math rule</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Error-Notice"><a href="#Error-Notice" class="headerlink" title="Error Notice"></a>Error Notice</h1><p>If you encounter some errors in $hexo$ $generate​$ about <em>hexo-render-pandoc</em>, one possible solution is to install <em>hexo-render-pandoc</em> again using </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
+<p>Then clean and generate hexo again, the error may be solved.</p>
+<p>If it still doesn’t work well, another direct method is to unistall <em>hexo-render-pandoc</em> using</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
+<p> It works well for me. Hope it helpful.</p>
 
       
     </div>
@@ -447,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -508,6 +542,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Plugin-Installation"><span class="nav-number">1.</span> <span class="nav-text">Plugin Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Configuration-Modification"><span class="nav-number">2.</span> <span class="nav-text">Configuration Modification</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Escape-Strategy-Modification"><span class="nav-number">3.</span> <span class="nav-text">Escape Strategy Modification</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-Notice"><span class="nav-number">4.</span> <span class="nav-text">Error Notice</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
