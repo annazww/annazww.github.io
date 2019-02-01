@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="121. Best Time to Buy and Sell StockanalysisThe brute force algorithm is use two loops to check every possible profit since at most one buy and sell transaction is allowed. It’s a $O(n^{3})$ algorithm">
+<meta name="description" content="121. Best Time to Buy and Sell StockanalysisThe brute force algorithm is use two loops to check every possible profit since at most one buy and sell transaction is allowed. It’s a $O(n^{2})$ algorithm">
 <meta name="keywords" content="all-in-one">
 <meta property="og:type" content="article">
 <meta property="og:title" content="stock">
 <meta property="og:url" content="https://annazww.github.io/2019/01/31/stock/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="121. Best Time to Buy and Sell StockanalysisThe brute force algorithm is use two loops to check every possible profit since at most one buy and sell transaction is allowed. It’s a $O(n^{3})$ algorithm">
+<meta property="og:description" content="121. Best Time to Buy and Sell StockanalysisThe brute force algorithm is use two loops to check every possible profit since at most one buy and sell transaction is allowed. It’s a $O(n^{2})$ algorithm">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-01T02:57:42.388Z">
+<meta property="og:updated_time" content="2019-02-01T03:31:59.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stock">
-<meta name="twitter:description" content="121. Best Time to Buy and Sell StockanalysisThe brute force algorithm is use two loops to check every possible profit since at most one buy and sell transaction is allowed. It’s a $O(n^{3})$ algorithm">
+<meta name="twitter:description" content="121. Best Time to Buy and Sell StockanalysisThe brute force algorithm is use two loops to check every possible profit since at most one buy and sell transaction is allowed. It’s a $O(n^{2})$ algorithm">
 
 
 
@@ -352,8 +352,8 @@
       
 
       
-        <h1 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121. Best Time to Buy and Sell Stock"></a>121. Best Time to Buy and Sell Stock</h1><h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><p>The brute force algorithm is use two loops to check every possible profit since at most one buy and sell transaction is allowed. It’s a $O(n^{3})$ algorithm, but will lead to TLE.</p>
-<p>Then we think about another algorithm, we only care about two stock transaction time. One is to buy the stock $b_{i}​$, and the other one is to sell the stock $s_{i}​$. Only if $s_{i}​$-$b_{i}​$$\geq​$0, we can gain profit from the transaction. So we just traversal every stock and update the lowest stock price and biggest profit simultaneously. We can get the biggest profit at last. It lead to $O(n)​$.</p>
+        <h1 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121. Best Time to Buy and Sell Stock"></a>121. Best Time to Buy and Sell Stock</h1><h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><p>The brute force algorithm is use two loops to check every possible profit since at most one buy and sell transaction is allowed. It’s a $O(n^{2})$ algorithm, but will lead to TLE.</p>
+<p>Then we think about another algorithm, we only care about two stock transaction time. One is to buy the stock $b_{i}$, and the other one is to sell the stock $s_{i}$. Only if $s_{i}$-$b_{i}$$\geq$0, we can gain profit from the transaction. So we just traversal every stock and update the lowest stock price and biggest profit simultaneously. We can get the biggest profit at last. It lead to $O(n)$.</p>
 <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><p>Brute Force $O(n^{2})​$  (Time Limit Exceeded)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prices: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> prices:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(prices)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,len(prices)):</span><br><span class="line">                <span class="keyword">if</span> prices[j]-prices[i]&gt;res:</span><br><span class="line">                    res = prices[j]-prices[i]</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 <p>Greedy Algorithm $O(n)​$</p>
@@ -397,6 +397,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/31/hexo-math/" rel="prev" title="hexo-math">
+                hexo-math <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -473,7 +477,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -484,7 +488,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -495,7 +499,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
