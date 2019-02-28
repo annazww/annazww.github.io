@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="data structure,algorithm,">
+  <meta name="keywords" content="data structure,algorithm,UCB CS61B,">
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="Learning JAVA now.">
-<meta name="keywords" content="data structure,algorithm">
+<meta name="keywords" content="data structure,algorithm,UCB CS61B">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java-foundation">
 <meta property="og:url" content="https://annazww.github.io/2019/02/28/java-foundation/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Learning JAVA now.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-28T18:25:36.577Z">
+<meta property="og:updated_time" content="2019-02-28T19:11:04.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java-foundation">
 <meta name="twitter:description" content="Learning JAVA now.">
@@ -364,9 +364,29 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm source.class</span><br></pre></td></tr></table></figure>
 <p>To see the content, type</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat source.java</span><br></pre></td></tr></table></figure>
+<p>To create new <em>.java</em> file, type</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subl new.java</span><br></pre></td></tr></table></figure>
 <h2 id="process"><a href="#process" class="headerlink" title="process"></a>process</h2><p>source.java-&gt;javac(compiler)-&gt;source.class-&gt;java(interpreter)-&gt;stuff happens</p>
 <p><em>.class</em> file has been type checked and simpler for machine to execute, so it is safer and faster.</p>
-
+<h1 id="Defining-and-Using-Classes"><a href="#Defining-and-Using-Classes" class="headerlink" title="Defining and Using Classes"></a>Defining and Using Classes</h1><p>To run a class, we must define a main method.</p>
+<p>But not all classes have a main class.</p>
+<h2 id="Object-Instantiation"><a href="#Object-Instantiation" class="headerlink" title="Object Instantiation"></a>Object Instantiation</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">d.weightInPounds = <span class="number">51</span>;</span><br><span class="line">d.makeNoise();</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> w)</span></span>&#123; </span><br><span class="line">    weightInPounds = w;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*like python def __init__():*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h2><ul>
+<li>Instance variable</li>
+<li>constructor</li>
+<li>Non static method/ Instance Method</li>
+</ul>
+<p>Declaration &amp; Instantiation &amp; Assignment -&gt; Invocation</p>
+<h2 id="Arrays-of-Objects"><a href="#Arrays-of-Objects" class="headerlink" title="Arrays of Objects"></a>Arrays of Objects</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Dog[] dogs = <span class="keyword">new</span> Dog[<span class="number">2</span>];</span><br><span class="line">dogs[<span class="number">0</span>] = <span class="keyword">new</span> Dog(<span class="number">8</span>);</span><br><span class="line">dogs[<span class="number">1</span>] = <span class="keyword">new</span> Dog(<span class="number">20</span>);</span><br><span class="line">dogs[<span class="number">0</span>].makeNoise();</span><br></pre></td></tr></table></figure>
+<h2 id="Static-vs-Non-static"><a href="#Static-vs-Non-static" class="headerlink" title="Static vs. Non-static"></a>Static vs. Non-static</h2><p>static: can be accessed using class name</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title">maxDog</span><span class="params">(Dog d1, Dog d2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (d1.weightInPounds&gt;d2.weightInPounds)&#123;</span><br><span class="line">        <span class="keyword">return</span> d1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>non-static: cannot be invoked using class name</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Dog <span class="title">maxDog</span><span class="params">(Dog d2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.weightInPounds&gt;d2.weightInPounds)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Static methods must access instance variables via a specific instance.</p>
+<h2 id="public-static-void-main"><a href="#public-static-void-main" class="headerlink" title="public static void main"></a>public static void main</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArgdDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> N = args.length;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;N)&#123;</span><br><span class="line">            sum = sum+Integer.parseInt(args[i]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Using-libraries"><a href="#Using-libraries" class="headerlink" title="Using libraries"></a>Using libraries</h2>
       
     </div>
     
@@ -386,6 +406,8 @@
             <a href="/tags/data-structure/" rel="tag"># data structure</a>
           
             <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/UCB-CS61B/" rel="tag"># UCB CS61B</a>
           
         </div>
       
@@ -505,7 +527,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -538,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Compilation"><span class="nav-number">1.</span> <span class="nav-text">Compilation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#step-in-command-line"><span class="nav-number">1.1.</span> <span class="nav-text">step in command line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#process"><span class="nav-number">1.2.</span> <span class="nav-text">process</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Compilation"><span class="nav-number">1.</span> <span class="nav-text">Compilation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#step-in-command-line"><span class="nav-number">1.1.</span> <span class="nav-text">step in command line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#process"><span class="nav-number">1.2.</span> <span class="nav-text">process</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Defining-and-Using-Classes"><span class="nav-number">2.</span> <span class="nav-text">Defining and Using Classes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-Instantiation"><span class="nav-number">2.1.</span> <span class="nav-text">Object Instantiation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Terminology"><span class="nav-number">2.2.</span> <span class="nav-text">Terminology</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arrays-of-Objects"><span class="nav-number">2.3.</span> <span class="nav-text">Arrays of Objects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Static-vs-Non-static"><span class="nav-number">2.4.</span> <span class="nav-text">Static vs. Non-static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#public-static-void-main"><span class="nav-number">2.5.</span> <span class="nav-text">public static void main</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-libraries"><span class="nav-number">2.6.</span> <span class="nav-text">Using libraries</span></a></li></ol></li></ol></div>
             
 
           </div>
