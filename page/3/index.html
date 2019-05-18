@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="Method for automatically rendering and displaying beautiful tex-style maths content in Hexo.">
-<meta name="keywords" content="hexo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="hexo-math">
-<meta property="og:url" content="https://annazww.github.io/2019/01/31/hexo-math/index.html">
+<meta name="description" content="Anna&apos;s Inner World">
+<meta name="keywords" content="Tech &amp; Life &amp; Self-improvement">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://annazww.github.io/page/3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Method for automatically rendering and displaying beautiful tex-style maths content in Hexo.">
+<meta property="og:description" content="Anna&apos;s Inner World">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-02T20:01:15.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo-math">
-<meta name="twitter:description" content="Method for automatically rendering and displaying beautiful tex-style maths content in Hexo.">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Anna&apos;s Inner World">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://annazww.github.io/2019/01/31/hexo-math/">
+  <link rel="canonical" href="https://annazww.github.io/page/3/">
 
 
 
 
 
-  <title>hexo-math | Hexo</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Hexo</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -145,7 +144,8 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -248,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://annazww.github.io/2019/01/31/hexo-math/">
+    <link itemprop="mainEntityOfPage" href="https://annazww.github.io/2019/01/31/interval/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Weiwei Zhou">
@@ -280,7 +280,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo-math</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/31/interval/" itemprop="url">interval</a></h1>
         
 
         <div class="post-meta">
@@ -292,7 +294,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-31T19:00:30-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-31T10:05:13-08:00">
                 2019-01-31
               </time>
             
@@ -315,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/style/" itemprop="url" rel="index">
-                    <span itemprop="name">style</span>
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
                   </a>
                 </span>
 
@@ -338,10 +340,6 @@
           
 
           
-              <div class="post-description">
-                  Method for automatically rendering and displaying beautiful tex-style maths content in Hexo.
-              </div>
-          
 
         </div>
       </header>
@@ -356,33 +354,16 @@
       
 
       
-        <h1 id="Plugin-Installation"><a href="#Plugin-Installation" class="headerlink" title="Plugin Installation"></a>Plugin Installation</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-mathjax --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
-<h1 id="Configuration-Modification"><a href="#Configuration-Modification" class="headerlink" title="Configuration Modification"></a>Configuration Modification</h1><p>In $Hexo$ site configuration file <strong>_config.yml</strong>, add the following sentences:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># MathJax Support</span><br><span class="line">math:</span><br><span class="line">  engine: &apos;mathjax&apos; # or &apos;katex&apos;</span><br><span class="line">  mathjax:</span><br><span class="line">    src: custom_mathjax_source</span><br><span class="line">    config:</span><br><span class="line">      # MathJax config</span><br><span class="line">  katex:</span><br><span class="line">    css: custom_css_source</span><br><span class="line">    js: custom_js_source # not used</span><br><span class="line">    config:</span><br><span class="line">      # KaTeX config</span><br></pre></td></tr></table></figure>
-<p>In theme configuraion file <strong>_next-theme-config.yml</strong> (if you use Next theme), modifying the following sentences (instead of adding):</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mathjax:</span><br><span class="line">  enable: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h1 id="Escape-Strategy-Modification"><a href="#Escape-Strategy-Modification" class="headerlink" title="Escape Strategy Modification"></a>Escape Strategy Modification</h1><p>In <strong>node_modules\kramed\lib\rules\inline.js</strong>, change the value of variable $secape​$ in line $11​$ as follows:</p>
-<p><strong>before changing</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure>
-<p><strong>after changing</strong> (changing the escape for <strong>\,{,}</strong>)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()# +\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure>
-<p>Again in <strong>node_modules\kramed\lib\rules\inline.js</strong>, change the value of variable $em$ in line $20$ as follows:</p>
-<p><strong>before changing</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
-<p><strong>after changing</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
-<p>In <strong>/node_modules/hexo-renderer-kramed/lib/renderer.js</strong>, make the following change:</p>
-<p><strong>before changing</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Change inline math rule</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Fit kramed's rule: $$ + \1 + $$</span></span><br><span class="line">    <span class="keyword">return</span> text.replace(<span class="regexp">/`\$(.*?)\$`/g</span>, <span class="string">'$$$$$1$$$$'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>after changing</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Change inline math rule</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Error-Notice"><a href="#Error-Notice" class="headerlink" title="Error Notice"></a>Error Notice</h1><p>If you encounter some errors in $hexo$ $generate​$ about <em>hexo-render-pandoc</em>, one possible solution is to install <em>hexo-render-pandoc</em> again using </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
-<p>Then clean and generate hexo again, the error may be solved.</p>
-<p>If it still doesn’t work well, another direct method is to unistall <em>hexo-render-pandoc</em> using</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
-<p> It works well for me. Hope it helpful.</p>
-
+        
+          A leetcode collection for interval related problems. Greedy algorithm is common to use in these problems. Priority queue is a good data structure for them.
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/31/interval/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -397,40 +378,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/01/31/stock/" rel="next" title="stock">
-                <i class="fa fa-chevron-left"></i> stock
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/06/path-sum/" rel="prev" title="path-sum">
-                path-sum <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -440,11 +395,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 
 
           </div>
@@ -452,10 +410,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -476,17 +430,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -546,22 +491,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Plugin-Installation"><span class="nav-number">1.</span> <span class="nav-text">Plugin Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Configuration-Modification"><span class="nav-number">2.</span> <span class="nav-text">Configuration Modification</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Escape-Strategy-Modification"><span class="nav-number">3.</span> <span class="nav-text">Escape Strategy Modification</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-Notice"><span class="nav-number">4.</span> <span class="nav-text">Error Notice</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -702,10 +631,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
